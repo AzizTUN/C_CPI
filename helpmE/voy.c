@@ -13,11 +13,10 @@ int main(){
             ch[i]=((char)(int)ch[i] +32);
         }
     }
-    char v[]="eyaoiu";
+    char v[]="eyaoui";
     for(int i =0;i<strlen(ch);i++){
-        if(ch[i]>=97 && ch[i]<=122){
-            nbr = ch[i]=='e' || ch[i]=='y' || ch[i]=='a'||
-            ch[i]=='u' || ch[i]=='i' || ch[i]=='o' ? nbr +1:nbr;
+        if(strchr(v,ch[i])!=NULL){
+            nbr++;
         }
     }
 printf("%s\n%d",ch,nbr);
