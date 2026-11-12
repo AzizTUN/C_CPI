@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <time.h>
+int main(){
+    /*srand(time(NULL));
+    int N,x,occ;
+    do{
+        printf("donner n : \n");
+        scanf("%d",&N);
+    }while(N<0 || N>10);
+    int M[N][N];
+    for(int i = 0 ; i < N ; i++){
+        for(int j = 0 ; j < N ; j++){
+            M[i][j] =1 + rand() % 10 ; 
+        }
+    }
+    printf("donner x : \n");
+    scanf("%d",&x);
+    for(int i = 0 ; i < N ; i++){
+        for(int j = 0 ; j < N ; j++){
+            occ += (M[i][j]) == x ? 1 : 0 ;
+        }
+    }*/
+    srand(time(NULL));
+    int N,x;
+    do{
+        printf("donner n : \n");
+        scanf("%d",&N);
+    }while(N<0 || N>50);
+    int A[N],pmax,max,j;
+    for(int i = 0 ; i < N ; i++){
+        A[i] =1 + rand() % 50 ;
+    }
+    for(int i =0;i<N-1;i++){
+        max = A[i];
+        pmax = i;
+        for(int j = i+1;j<N;j++){
+            if(A[j]>max){
+                max = A[j];
+                pmax = j;
+            }
+        }
+        if(pmax != i){
+            x = A[i];
+            A[i] = A[pmax];
+            A[pmax] = x;
+        }
+    }
+    for(int i = 0;i<N;i++){
+        printf("%d|",A[i]);
+    }
+    return 0;
+}
